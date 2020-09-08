@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>More Production</title>
+    <link rel="stylesheet" href="generalStyling">
+    <link rel="icon" href="MoreProductionFavicon" type="image/gif" sizes="120x120">
+    
+    <style>
+        /* Jag skrev inte nån kommentar på dem flesta @media (orientation: portrait) eftersom de är samma som landscape för att inte upprepa samma kommentar*/
+        
+        body{
+           background-color: #02070a;
+
+        }
+        /* landscape orientaion säger så länge bredden är längre än höjden så ska denna style stämma.*/
+        @media(orientation : landscape) {
+
+            /* en deklaration för contant*/
+            #contant{
+                position: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            
+            /* en deklaration för sildeshow behållare*/
+            #slideShowAtTheBG {
+                position: fixed;
+            }
+
+            /* en deklaration för bilderna i sildeshown*/
+            #slideShowAtTheBG img {
+                position: fixed;
+                width: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            /* en deklaration för behållaren som har en bild på mig och text*/
+            #mojjeLandingsPage {
+                position: fixed;
+                top: 0;
+                left: 1;
+            }
+            
+            /* en deklaration för bilden på mig*/
+            #mojjeLandingsPage img{
+                position: fixed;     
+                background-size: cover;
+                height: 100%;
+            }
+            
+            /* en deklaration för texten som är på min bild */
+            #mojjeLandingsPage>h1 {
+                color: white;
+                position: fixed;
+                top: 85%;
+                left: 80px;
+                font-family: poetsenOneRegular;
+                font-size: 30px;
+                z-index: 2000;
+                
+            }
+            
+            /* anfang effekt for 'W'et.*/
+            h1::first-letter {
+                font-size: 150%;
+            }
+            
+            /* en deklaration för effektet på slideshown*/
+            .effect {
+                animation-name: effect;
+                animation-duration: 3s;
+            }
+
+            /* en keyframes deklaration för effektet på slideshow*/
+            @keyframes effect {
+                from {
+                    opacity: 0.666;
+                }
+
+                to {
+                    opacity: 1;
+                }
+                
+            }
+            
+            /* en deklaration för texten/länken på slideshown*/
+            #slideShowAtTheBG>a {
+                font-size: 20px;
+                color: aliceblue;
+                position: fixed;
+                top: 90%;
+                left: 87%;
+                border: 2px solid white;
+                padding: 10px;
+                font-family: poetsenOneRegular;
+            }
+            
+            /* en deklaration för behållaren som innehåller bilden på mig för portrait oreintation*/
+            #mojje {
+                margin-top: -5px;
+                text-align: center;
+                display: none;
+            }
+            
+        }
+        
+        
+        /* Portrait orientaion säger så länge höjden är längre än bredden eller när höjden är lika stor som bredden så ska denna style stämma.*/
+        @media (orientation : portrait) {
+            
+            /* en deklaration för sildeshow behållare*/
+            #slideShowAtTheBG {
+                position: relative;
+            }
+
+            /* en deklaration för bilderna i sildeshown*/
+            #slideShowAtTheBG img {
+                width: 100%;
+                height: 500px;
+                background-size: cover;
+            }
+
+            /* en deklaration för behållaren som har en bild på mig och text. För landscape oreientation*/
+            #mojjeLandingsPage {
+                display: none;
+                position: relative;
+                top: -1%;
+                left: 1;
+            }
+
+            /* en deklaration för effektet på slideshown*/
+            .effect {
+                animation-name: effect;
+                animation-duration: 3s;
+            }
+
+            /* en keyframes deklaration för effektet på slideshow*/
+            @keyframes effect {
+                from {
+                    opacity: 0.666;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* en deklaration för texten som är på min bild. För landscape oreientation */
+            #mojjeLandingsPage>h1 {
+                color: aliceblue;
+                position: fix;
+                top: 80%;
+                left: 80px;
+                font-family: rockBrushDemo;
+                font-size: 50px;
+                display: none;
+
+
+            }
+
+            /* en deklaration för texten/länken på slideshown. För landscape oreientation*/
+            #slideShowAtTheBG>a {
+                font-size: 35px;
+                color: aliceblue;
+                position: fixed;
+                top: 84%;
+                left: 80%;
+                border: 2px solid white;
+                padding: 10px;
+                font-family: poetsenOneRegular;
+                display: none;
+            }
+
+            /* en deklaration för behållaren som innehåller bilden på mig för portrait oreintation*/
+            #mojje {
+                margin-top: -10px;
+                text-align: center;
+            }
+
+            /* en deklaration för bilden på mig för portrait oreintation*/
+            #mojje img {
+                width: 100%;
+                height: 50%;
+                background-size: cover;
+            }
+
+            /* en deklaration för texten på min bild för portrait oreintation*/
+            #mojje>h1 {
+                color: aliceblue;
+                position: fixed;
+                top: 70%;
+                left: 80px;
+                font-family: poetsenOneRegular;
+                font-size: 35px;
+            }
+
+            /* en deklaration för texten/länken på min bild för portrait oreintation*/
+            #mojje>a {
+                font-size: 35px;
+                color: aliceblue;
+                position: fixed;
+                top: 72%;
+                left: 70%;
+                border: 2px solid white;
+                padding: 10px;
+                font-family: poetsenOneRegular;
+            }
+            
+            /* anfang effekt for 'W'et.*/
+            h1::first-letter {
+                font-size: 200%;
+            }
+            
+        }
+
+    </style>
+    
+</head>
+
+<body>
+
+<div id="contant">
+   
+    <div id="slideShowAtTheBG">
+
+        <div class="effect slide">
+            <img src="Longedrag">
+        </div>
+        
+        <div class="effect slide">
+            <img src="DroneCarOnBridge">
+        </div>
+        
+        <div class="effect slide">
+            <img src="DroneBridge">
+        </div>
+        
+        <div class="effect slide">
+            <img src="Hinsholmen">
+        </div>
+        
+        <div class="effect slide">
+            <img src="TentSky">
+        </div>
+
+        <script>
+            var index = 0;
+            show();
+
+            function show() {
+                var i;
+                var slides = document.getElementsByClassName("slide");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                index = index + 1;
+                if (index > slides.length) {
+                    index = 1;
+                }
+                slides[index - 1].style.display = "block";
+                setTimeout(show, 3500);
+            }
+        </script>
+        
+        <a href="works.html">Discover More</a>
+
+    </div>
+
+    <div id="mojje">
+        <img src="Mojje" alt="">
+        <h1>Welcome to my website<br>Hope we will work togher.</h1>
+        <a href="works.html">Discover More</a>
+
+    </div>
+    
+    <div id="mojjeLandingsPage">
+        <img src="MojjeLandingsPage" >
+        <h1>Welcome to my website<br>Hope we will work togher.</h1>
+    </div>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+/* en generelt design för alla sidor som är länkad till den här css fillen.*/
+* {
+    margin: 0;
+
+}
+
+
+/* en typsnitt som jag använder både här i css fillen och i style taggen.*/
+@font-face {
+    font-family: poetsenOneRegular;
+    src: url(../Fonts/PoetsenOneRegular.ttf);
+}
+
+
+
+/* en typsnitt som jag använder både här i css fillen och i style taggen.*/
+@font-face {
+    font-family: mitchella;
+    src: url(../Fonts/MithellaRegular.otf);
+
+}
+
+
+
+/* en typsnitt som jag använder både här i css fillen och i style taggen.*/
+@font-face {
+    font-family: sweetHansan;
+    src: url(../Fonts/SweetHansanFontRegular.otf);
+}
+
+
+
+/* landscape orientaion säger så länge bredden är längre än höjden så ska denna style stämma.*/
+
+
+@media (orientation : landscape) {
+
+    
+    /* en deklaration för bodyn*/
+    body {
+        background-color: #e5e5e5;
+    }
+
+    /* en deklaration för headern*/
+    .header {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    /* en deklaration för vänstra loggan*/
+    .leftLogo {
+        display: flex;
+        justify-content: center;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    /* en deklaration för menyn/navigeringen*/
+    #menu {
+        display: flex;
+        justify-content: center;
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    /* en deklaration för högra loggan*/
+    .rightLogo {
+        display: flex;
+        justify-content: center;
+        grid-area: 1 / 3 / 2 / 4;
+    }
+
+    /* en deklaration för länkar i navigeringen vilket ger ett effekt på namnen av länkarna*/
+    #menu a {
+        color: black;
+        background-color: white;
+        padding: 25px 50px;
+        text-align: center;
+        border: 2px solid #e5e5e5;
+        font-size: 15px;
+        font-family: poetsenOneRegular;
+        letter-spacing: 2px;
+    }
+
+    /* en hover för länkar i navigeringen vilket ger ett effekt på namnen av länkarna. När muspekaren kommer på dem*/
+    #menu a:hover {
+        background-color: #e5e5e5;
+        color: black;
+    }
+    
+    /* en deklaration för länkar i navigeringen vilket ger ett effekt på namnen av länkarna*/
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2em;
+        transition: letter-spacing .7s;
+    }
+    
+}
+
+
+
+/* Portrait orientaion säger så länge höjden är längre än bredden eller när höjden är lika stor som bredden så ska denna style stämma.*/
+@media (orientation : portrait) {
+
+    /* en deklaration för bodyn*/
+    body {
+        background-color: #e5e5e5;
+    }
+
+    /* en deklaration för vänstra loggan*/
+    .leftLogo {
+        display: none;
+    }
+
+    /* en deklaration för högra loggan*/
+    .rightLogo {
+        margin: auto;
+        position: relative;
+        text-align: center;
+        width: 50%;
+        z-index: -1000;
+    }
+
+    /* en deklaration för menyn/navigeringen*/
+    #menu {
+        position: fixed;
+        width: 30%;
+        height: 100%;
+        left: -30%;
+        transition: all 700ms ease;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 0fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    /* en deklaration för menyn/navigeringen när den blir aktiverad. När man trycker på span/sträckor*/
+    #menu.active {
+        left: 0%;
+        box-shadow: 1px 10px 50px gray;
+    }
+
+    /* en deklaration för länkar i navigeringen vilket ger ett effekt på namnen av länkarna*/
+    #menu a {
+        color: black;
+        font-size: 30px;
+        padding: 30px;
+        border-bottom: 1px solid gray;
+        text-align: center;
+        float: left;
+        text-align: center;
+        font-size: 20px;
+        font-family: sweetHansan;
+    }
+
+    /* en deklaration för länkar i navigeringen vilket ger ett effekt på namnen av länkarna*/
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2em;
+        transition: letter-spacing .7s;
+    }
+
+    /* en deklaration för menyns/navigeringens knäpp vilket är tre sträckor på varandra*/
+    .toggle-btn {
+        position: absolute;
+        margin-top: 15px;
+        margin-left: 2px;
+        left: 105%;
+        top 10%;
+    }
+
+    /* en deklaration för knäppen vilket är tre sträckor på varandra*/
+    .toggle-btn span {
+        display: block;
+        background-color: white;
+        width: 30px;
+        height: 5px;
+        margin: 5px;
+        top 10%;
+    }
+
+}
