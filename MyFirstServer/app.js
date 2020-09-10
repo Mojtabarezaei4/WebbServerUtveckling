@@ -27,7 +27,7 @@ app.get('/', (req, resp) => {
     resp.sendFile('index.html', {root: path.join(clientDir)})
 })
 app.post('/', (req, resp) => {
-    resp.json(req.body);
+    console.log(req.body);
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
