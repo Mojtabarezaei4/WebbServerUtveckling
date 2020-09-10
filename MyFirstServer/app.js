@@ -23,10 +23,10 @@ app.get('/TentSky', (req, res) => res.sendFile(clientImages + "TentSky.jpg"))
 app.get('/Mojje', (req, res) => res.sendFile(clientImages + "Mojje.jpg"))
 app.get('/MojjeLandingsPage', (req, res) => res.sendFile(clientImages + "MojjeLandingsPage.png"))
 
-app.get('/', function(req, resp) {
+app.get('/', (req, resp) => {
     resp.sendFile('index.html', {root: path.join(clientDir)})
 })
-app.post('/', function(req, resp) {
+app.post('/', (req, resp) => {
     resp.json(req.body);
 })
 
