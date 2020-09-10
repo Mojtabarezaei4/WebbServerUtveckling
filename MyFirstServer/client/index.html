@@ -16,6 +16,7 @@
            background-color: #02070a;
 
         }
+        
         /* landscape orientaion säger så länge bredden är längre än höjden så ska denna style stämma.*/
         @media(orientation : landscape) {
 
@@ -98,6 +99,12 @@
                 border: 2px solid white;
                 padding: 10px;
                 font-family: poetsenOneRegular;
+            }
+
+            #form {
+                position: fixed;
+                top: 70%;
+                left: 87%;
             }
             
             /* en deklaration för behållaren som innehåller bilden på mig för portrait oreintation*/
@@ -267,6 +274,17 @@
                 setTimeout(show, 3500);
             }
         </script>
+
+        <div id="form">
+        <form action="/" method="POST">
+        <label for="name">First name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Name" value=""><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" placeholder="Email" name="email" value=""><br><br>
+        <input type="submit" value="Submit">
+      </form> 
+    
+        </div>
         
         <a href="works.html">Discover More</a>
 
@@ -276,15 +294,16 @@
         <img src="Mojje" alt="">
         <h1>Welcome to my website<br>Hope we will work togher.</h1>
         <a href="works.html">Discover More</a>
-
     </div>
-    
+
     <div id="mojjeLandingsPage">
         <img src="MojjeLandingsPage" >
         <h1>Welcome to my website<br>Hope we will work togher.</h1>
     </div>
 
 </div>
+
+
 </body>
 
 </html>
