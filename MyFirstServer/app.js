@@ -28,6 +28,7 @@ app.get('/', (req, resp) => {
 })
 app.post('/', (req, resp) => {
     console.log(req.body);
+    resp.redirect('/')
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
