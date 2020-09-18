@@ -27,7 +27,9 @@ app.get('/', (req, resp) => {
     resp.sendFile('index.html', {root: path.join(clientDir)})
 })
 app.post('/', (req, resp) => {
-    console.log(req.body);
+    console.log('name: ' + req.body.name);
+    console.log('email: ' + req.body.email);
+
     resp.redirect('/')
 })
 
