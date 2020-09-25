@@ -2,6 +2,15 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// For connect the app.js to the database.Line 6-12
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/formInformations', {useNewUrlParser: true});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(){
+});
+
 const clientDir = __dirname + "\\client\\"
 const clientImages = __dirname + "\\client\\images\\"
 
@@ -23,12 +32,24 @@ app.get('/TentSky', (req, res) => res.sendFile(clientImages + "TentSky.jpg"))
 app.get('/Mojje', (req, res) => res.sendFile(clientImages + "Mojje.jpg"))
 app.get('/MojjeLandingsPage', (req, res) => res.sendFile(clientImages + "MojjeLandingsPage.png"))
 
+
+const peopleSchema = new mongoose.Schema({
+    name : String,
+    email : String
+})
+
+const People = mongoose.model('People',peopleSchema)
+
 app.get('/', (req, resp) => {
     resp.sendFile('index.html', {root: path.join(clientDir)})
 })
 app.post('/', (req, resp) => {
-    console.log('name: ' + req.body.name);
-    console.log('email: ' + req.body.email);
+    var name = req.body.name
+    var email = req.body.email
+
+    const peopleInformation = new People({name, email})
+
+    peopleInformation.save()
 
     resp.redirect('/')
 })

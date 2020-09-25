@@ -7,7 +7,7 @@ db.once('open', function(){
 });
 
 const kittySchema = new mongoose.Schema({
-    name: String
+    name: String    
 });
 
 kittySchema.methods.speak = function () {
