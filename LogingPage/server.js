@@ -6,8 +6,6 @@ const port = 3000
 const dbModule = require('./DataBase/dbModules')
 const personModule = require('./DataBase/CreatePerson')
 
-app.use(express.json());
-
 app.get('/', (req, res) => {
     res.render('index.ejs')
 })
