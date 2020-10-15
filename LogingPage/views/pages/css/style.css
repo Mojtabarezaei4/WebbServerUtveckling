@@ -9,12 +9,17 @@ body{
     justify-content: center;
     margin: auto;
 }
-
-.form{
-    display: flex;
+div{
     flex-direction: column;
     width: 40%;
     height: 40%;
+}
+#message-view{
+    margin-top: 5rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
     margin-top: 2rem;
 }
 label{
@@ -35,6 +40,15 @@ label{
 }
 
 #email{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid gray;
+    color: rgb(48, 48, 48);
+    margin-top: 2rem;
+    outline: none;
+    
+}
+#message{
     background-color: transparent;
     border: none;
     border-bottom: 2px solid gray;

@@ -21,10 +21,16 @@
             <label for="message"><b>Message</b></label>
             <input type="message" placeholder="Message" name="message" id="message">
 
-            <button type="submit" href="messages.ejs">Submit</button>
+            <button type="submit">Submit</button>
         </form>
+        <div id="message-view">
+            <h3>Messages:</h1>
+                <% for( let i = 0; i < messages.length; i++ ) { %>
+                <h4> <%- messages[i].message %> </h4>
+                <% } %>
+        </div>
     </div>
-
 </body>
+
 
 </html>
