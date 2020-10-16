@@ -5,12 +5,17 @@ const personSchema = new mongoose.Schema({
     email: String
 });
 
-const Element = mongoose.model('Element', personSchema);
+const Persons = mongoose.model('Persons', personSchema);
 
 exports.createPerson = (name, email) =>{
-    var newElement = new Element({
+    var newPersons = new Persons({
         name: name,
         email: email
     }) 
-    return newElement
+    return newPersons
+}
+
+exports.getAllPersons = async () => {
+    let nameList = await Persons.find({})
+    return nameList
 }

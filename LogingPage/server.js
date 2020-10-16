@@ -4,8 +4,7 @@ const port = 3000
 
 //Connecting to the data base
 const dbModule = require('./DataBase/dbModules')
-const personModule = require('./DataBase/CreatePerson')
-const messagesModule = require('./DataBase/StoreMessages')
+const commentsModule = require('./DataBase/StoreComments')
 
 app.use(express.json())
 app.use(express.urlencoded())
@@ -18,11 +17,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', async (req, res) =>{
-    let message = messagesModule.storeMessages(req.body.message)
-    dbModule.store(message)
 
-    let messagesList = await messagesModule.getAllMessages()
-    res.render('pages/messages.ejs', {messages : messagesList})
+    let createdAt = new Date().toString()
+
+    let comment = commentsModule.storeComments(req.body.name, req.body.message, createdAt)
+    await dbModule.store(comment)
+    let commentList = await commentsModule.getAllComments()
+    
+    res.render('pages/messages.ejs', {comments : commentList})
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
