@@ -6,10 +6,10 @@ const personSchema = new mongoose.Schema({
     password: String
 });
 
-const Persons = mongoose.model('Persons', personSchema);
+const Person = mongoose.model('Person', personSchema);
 
 exports.createPerson = (name, email, password) =>{
-    var newPersons = new Persons({
+    var newPersons = new Person({
         name: name,
         email: email,
         password: password
@@ -18,6 +18,11 @@ exports.createPerson = (name, email, password) =>{
 }
 
 exports.getAllPersons = async () => {
-    let nameList = await Persons.find({})
-    return nameList
+    let personsList = await Person.find({})
+    return personsList
+} 
+
+exports.getOnePerson = async (email) => {
+    let personsList = await Person.findOne({email: email})
+    return personsList
 } 

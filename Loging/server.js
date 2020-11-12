@@ -14,22 +14,50 @@ app.use(express.static(__dirname + '\\views\\pages\\css\\'))
 
 app.set('view engine', 'ejs')
 
+var name = ""
+
 app.get('/', (req, res) => {
-    res.render('pages/index.ejs')
+    if (name == "") res.render('pages/login.ejs')
+    else res.render('pages/index.ejs', { name: createLogin.getAllPersons.name })
 })
 
-app.post('/', async (req, res) => {
+app.post('/', (req, res) => {
+})
 
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const user = { name: req.body.name, password: hashedPassword }
+app.get('/register', (req, res) => {
+    res.render('pages/register.ejs')
+})
 
-        let newLogin = await createLogin.createPerson(req.body.name, req.body.email, hashedPassword)
-        let loginList = await dbModule.store(newLogin)
+app.post('/register', async (req, res) => {
 
-        res.render('pages/index.ejs')
-    } catch {
-        res.status(500).send()
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    console.log(hashedPassword);
+    let newLogin = createLogin.createPerson(req.body.name, req.body.email, hashedPassword)
+    console.log(newLogin);
+    await dbModule.store(newLogin)
+    console.log("Registered!")
+    res.redirect('/login')
+})
+
+app.get('/login', (req, res) => {
+    res.render('pages/login.ejs')
+})
+
+app.post('/login', async (req, res) => {
+
+    try{
+        const user = await createLogin.getOnePerson(req.body.email)
+    if (user){
+        const validPassword = await bcrypt.compare(req.body.password, user.password)
+        if(validPassword){
+            res.render('pages/index.ejs', {name : user.name})
+        }
+    }    
+    else {
+        console.log("Faild!")
+    }
+    }catch{
+        res.status(500).send("Something wrong")
     }
 })
 

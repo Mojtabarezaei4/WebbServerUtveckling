@@ -10,21 +10,10 @@
 
 <body>
     <div>
-        <form action="/" method="POST" class="form">
-
-            <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Name" name="name" id="name" required>
-
-            <label for="email"><b>E-mail</b></label>
-            <input type="email" placeholder="E-mail" name="email" id="email">
-
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Password" name="password" id="password" required>
-
-            <button type="submit" href="messages.ejs">Submit</button>
-        </form>
+        <p3>Hi <%- name %> </p3>
     </div>
 
+    <a href="login">Log out</a>
 </body>
 
 </html>
