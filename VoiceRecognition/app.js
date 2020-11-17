@@ -35,7 +35,7 @@ function readOutLoud(message) {
     speech.text = 'I dont care'
     console.log(message)
 
-    if (message.includes('how are you')) {
+    if (message.toLowerCase().includes('how are you')) {
         const finalText = greetings[Math.floor(Math.random() * greetings.length)]
         
         speech.text = finalText
