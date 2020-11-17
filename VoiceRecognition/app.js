@@ -2,7 +2,6 @@ const btn = document.querySelector('.talk')
 const content = document.querySelector('.content')
 
 const greetings = ['Im good you little piece of shiit',
-    'Doing good bitch',
     'Like you care?',
     'Does it matter for you',
     'Leave me alone noob'
